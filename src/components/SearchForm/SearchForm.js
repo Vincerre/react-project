@@ -10,7 +10,7 @@ const SearchForm = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    dispatch({ type: 'SEARCH_UPDATE', payload: { search } });
+    dispatch({ type: 'SEARCH_UPDATE', payload: search });
     setSearch('');
   };
 

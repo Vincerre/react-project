@@ -4,7 +4,7 @@ import CardForm from '../CardForm/CardForm';
 import { useSelector } from 'react-redux';
 
 const Column = (props) => {
-  const search = useSelector((state) => state.search.search);
+  const search = useSelector((state) => state.search);
   console.log('search:', search);
   const cards = useSelector((state) =>
     state.cards.filter(
