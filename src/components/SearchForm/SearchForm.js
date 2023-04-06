@@ -5,18 +5,22 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const SearchForm = () => {
-  const dispatch = useDispatch('');
+  const dispatch = useDispatch();
   const [search, setSearch] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     dispatch({ type: 'SEARCH_UPDATE', payload: { search } });
     setSearch('');
   };
 
   return (
-    <form className={styles.searchForm} onSubmit={handleSubmit}>
-      <TextInput placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
+    <form className={styles.searchForm} onSubmit={handleSearch}>
+      <TextInput
+        placeholder="Search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <Button>
         <span className="fa fa-search" />
       </Button>
