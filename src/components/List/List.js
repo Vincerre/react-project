@@ -1,11 +1,12 @@
 import styles from './List.module.scss';
 import Column from './../Column/Column';
 import ColumnForm from './../ColumnForm/ColumnForm';
-import { getAllColumns } from '../../redux/store';
+import { getAllColumns, getListById } from '../../redux/store';
 import { useSelector } from 'react-redux';
 
 const List = () => {
   const columns = useSelector(getAllColumns);
+  const listData = useSelector(getListById);
 
   return (
     <div className={styles.list}>
@@ -14,9 +15,7 @@ const List = () => {
           Things to do<span>soon!</span>
         </h2>
       </header>
-      <p className={styles.description}>
-        Interesting things I want to check out
-      </p>
+      <p className={styles.description}>Interesting things I want to check out</p>
       <section className={styles.columns}>
         {columns.map((column) => (
           <Column key={column.id} {...column} />
