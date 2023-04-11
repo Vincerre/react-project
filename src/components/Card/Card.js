@@ -4,7 +4,6 @@ import { like } from '../../redux/store.js';
 
 const Card = (props) => {
   const dispatch = useDispatch();
-  console.log(props.isFavorite);
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(like(props.id));
