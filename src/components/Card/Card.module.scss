@@ -8,6 +8,24 @@
     margin: 0 0 $base-size 0;
     border-radius: $radius;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     font-weight: bold;
+}
+
+.button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    :hover{
+        transition: all 0.2s;
+        transform: scale(1.2)
+    }
+}
+
+.isFavorite{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: $color-warning;
+    transform: scale(1.2);
 }
