@@ -7,7 +7,7 @@ import { getFavoriteCards } from '../../redux/cardsRedux';
 const Favorite = () => {
   const cards = useSelector(getFavoriteCards);
 
-  if (cards.length === 0) {
+  if (!cards.length) {
     return (
       <div className={styles.container}>
         <PageTitle>No favorite cards</PageTitle>
@@ -20,12 +20,7 @@ const Favorite = () => {
       <article className={styles.column}>
         <ul className={styles.cards}>
           {cards.map((card) => (
-            <Card
-              key={card.id}
-              title={card.title}
-              id={card.id}
-              isFavorite={card.isFavorite}
-            />
+            <Card key={card.id} {...card} />
           ))}
         </ul>
       </article>
