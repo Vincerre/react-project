@@ -20,7 +20,7 @@ const Card = (props) => {
     <li className={styles.card}>
       {props.title}
       <div>
-        <button className={props.isFavorite ? styles.isFavorite : styles.button} onClick={handleClick}>
+        <button className={clsx(styles.button, props.isFavorite && styles.isFavorite)} onClick={handleClick}>
           <i className="fa fa-star-o" />
         </button>
         <button className={styles.button} onClick={remove}>
