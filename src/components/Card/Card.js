@@ -1,6 +1,7 @@
 import styles from './Card.module.scss';
 import { useDispatch } from 'react-redux';
 import { like, removeCard } from '../../redux/cardsRedux';
+import clsx from 'clsx';
 
 const Card = (props) => {
   const dispatch = useDispatch();
@@ -19,11 +20,7 @@ const Card = (props) => {
     <li className={styles.card}>
       {props.title}
       <div>
-        <button
-          className={
-            props.isFavorite ? styles.isFavorite : styles.button
-          }
-          onClick={handleClick}>
+        <button className={props.isFavorite ? styles.isFavorite : styles.button} onClick={handleClick}>
           <i className="fa fa-star-o" />
         </button>
         <button className={styles.button} onClick={remove}>
