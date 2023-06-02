@@ -13,23 +13,15 @@ const ColumnForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addColumn({ title, icon, listId: props.listId }));
+    dispatch(addColumn({ title, icon, listId: props.id }));
     setTitle('');
     setIcon('');
   };
 
   return (
     <form className={styles.columnForm} onSubmit={handleSubmit}>
-      Title:{' '}
-      <TextInput
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      Icon:{' '}
-      <TextInput
-        value={icon}
-        onChange={(e) => setIcon(e.target.value)}
-      />
+      Title: <TextInput value={title} onChange={(e) => setTitle(e.target.value)} />
+      Icon: <TextInput value={icon} onChange={(e) => setIcon(e.target.value)} />
       <Button>Add Column</Button>
     </form>
   );

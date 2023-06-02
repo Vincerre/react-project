@@ -11,13 +11,11 @@ import { useParams } from 'react-router';
 const List = () => {
   const { listId } = useParams();
 
-  const columns = useSelector((state) =>
-    getColumnsByList(state, listId)
-  );
+  const id = parseInt(listId, 10);
 
-  const listData = useSelector((state) =>
-    getListById(state, listId)
-  );
+  const columns = useSelector((state) => getColumnsByList(state, id));
+
+  const listData = useSelector((state) => getListById(state, id));
 
   if (!listData) return <Navigate to="/" />;
   return (
@@ -25,9 +23,7 @@ const List = () => {
       <header className={styles.header}>
         <h2 className={styles.title}>{listData.title}</h2>
       </header>
-      <p className={styles.description}>
-        {listData.description}
-      </p>
+      <p className={styles.description}>{listData.description}</p>
       <SearchForm />
 
       <section className={styles.columns}>
@@ -35,7 +31,7 @@ const List = () => {
           <Column key={column.id} {...column} />
         ))}
       </section>
-      <ColumnForm listId={listId} />
+      <ColumnForm id={id} />
     </div>
   );
 };

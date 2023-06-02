@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 const Card = (props) => {
   const dispatch = useDispatch();
+  console.log(props.id);
 
   const handleClick = (e) => {
     e.preventDefault();
